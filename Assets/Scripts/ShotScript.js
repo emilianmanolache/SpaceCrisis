@@ -24,7 +24,7 @@ public class ShotScript extends MonoBehaviour {
 		
 			// get explosion animation
 			
-			var explosion = Instantiate(explosionObject, transform.position, Quaternion.identity);
+		    var explosion = Instantiate(explosionObject, hitObject.transform.position, Quaternion.identity);
 		
 			// play explosion sound
 			
