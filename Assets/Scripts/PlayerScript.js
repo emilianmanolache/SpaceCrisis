@@ -19,6 +19,8 @@ public class PlayerScript extends MonoBehaviour {
 	
 	public var parallaxSpace:GameObject;
 	
+    public var projectileVelocity:int = 1;
+
 	function Update () {
 	
 	
@@ -79,8 +81,6 @@ public class PlayerScript extends MonoBehaviour {
 			var projectile:GameObject = Instantiate(prefab, bulletOrigin.transform.position, gameObject.transform.rotation) as GameObject;
 			
 			var movingSpeed = Mathf.Abs(inputX) > Mathf.Abs(inputY) ? Mathf.Abs(inputX) : Mathf.Abs(inputY);
-			
-			var projectileVelocity = 1 + movingSpeed;
 
 			projectile.GetComponent.<Rigidbody2D>().AddForce(projectile.transform.right * projectileSpeed * projectileVelocity);
 			

@@ -44,7 +44,7 @@ public class ShotScript extends MonoBehaviour {
 			
 			enemies = GameObject.FindGameObjectsWithTag("Enemy");
 			
-			Debug.Log(enemies.length);
+			Debug.Log('Remaining enemies: ' + enemies.length);
 			
 			if (enemies.length == 1) {
 			
