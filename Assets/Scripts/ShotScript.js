@@ -6,6 +6,8 @@ public var explosionSound:AudioClip;
 
 private var uiScript:UITextScript;
 
+public var bulletLifetime:float = 0.5;
+
 public class ShotScript extends MonoBehaviour {
 	
 	public var damage : int = 1;
@@ -13,8 +15,8 @@ public class ShotScript extends MonoBehaviour {
 	public var isEnemyShot : boolean = false;
 	
 	function Start () {
-	
-		Destroy(gameObject, 20);
+	    
+	    Destroy(gameObject, bulletLifetime);
 
 	}
 	

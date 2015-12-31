@@ -21,28 +21,44 @@ public class PlayerScript extends MonoBehaviour {
 	
     public var projectileVelocity:int = 1;
 
+    public var deadzone:float = 0;
+
 	function Update () {
 	
 	
 		/** Note original position, to be used with rotation **/
 		
-		var origPos = transform.position;
+	    var origPos = transform.position;
 		
 		/** end Note original position, to be used with rotation **/
 		
 		
-		/** Move object statically **/
+		/** Move and rotate object **/
 		
 		var inputX : float = Input.GetAxis("Horizontal");
 		
 		var inputY : float = Input.GetAxis("Vertical");
+ 
+		var movement:Vector2 = new Vector2(speed.x * inputX, speed.y * inputY);
 		
-		var movement : Vector3 = new Vector3(speed.x * inputX, speed.y * inputY, 0);
-		
-		movement *= Time.deltaTime;
-		
-		transform.Translate(movement, Space.World);
-		
+		if (movement.sqrMagnitude >= deadzone || movement.sqrMagnitude == 0) {
+		    
+		    deadzone = movement.sqrMagnitude > 2000 ? 2000 : movement.sqrMagnitude;
+
+		    GetComponent.<Rigidbody2D>().velocity = movement;
+
+		    if (GetComponent.<Rigidbody2D>().velocity != Vector2.zero) {
+
+		        var dir:Vector2 = GetComponent.<Rigidbody2D>().velocity;
+
+		        var angle:float = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+		        transform.rotation = /*Quaternion.RotateTowards(transform.rotation, */Quaternion.AngleAxis(angle, Vector3.forward)/*, Time.deltaTime * 150)*/;
+
+		    }
+
+		}
+
 		/** end Move object statically **/
 		
 		
@@ -53,30 +69,15 @@ public class PlayerScript extends MonoBehaviour {
 		//parallaxSpace.transform.position = Vector3((Camera.main.transform.position.x / 10), (Camera.main.transform.position.y / 10), (Camera.main.transform.position.z - 30));
 		
 		/** end Move camera with player **/
-		
-		
-		/** Rotate sprite to face moving direction **/
-		
-		var moveDirection:Vector3 = transform.position - origPos;
-		
-		if (moveDirection != Vector3.zero) {
-		
-			var angle:float = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-			
-			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-			
-		}
-		
-		/** end Rotate sprite to face moving direction **/
 
 
 		/** Basic shooting **/
 		
 		if (Input.GetButtonDown ("Fire1")) {
 
-			var shootDirection = moveDirection != Vector3.zero ? moveDirection : -(transform.position - fireOrigin.transform.position);
+		    var moveDirection:Vector3 = transform.position - origPos;
 
-			var q:Quaternion = Quaternion.FromToRotation(Vector3.forward, shootDirection);
+			var shootDirection = moveDirection != Vector3.zero ? moveDirection : -(transform.position - fireOrigin.transform.position);
 			 
 			var projectile:GameObject = Instantiate(prefab, bulletOrigin.transform.position, gameObject.transform.rotation) as GameObject;
 			
@@ -133,7 +134,7 @@ public class PlayerScript extends MonoBehaviour {
     	
     	
     }
-	
+
 	function hideAllPlanetText() {
 	
 		var planetTextLayer = FindGameObjectsWithLayer(11);
@@ -179,5 +180,5 @@ public class PlayerScript extends MonoBehaviour {
 	    return goList.ToArray();
 	    
     }
-    
+
 }
