@@ -43,7 +43,7 @@ public class PlayerScript extends MonoBehaviour {
 		
 		if (movement.sqrMagnitude >= deadzone || movement.sqrMagnitude == 0) {
 		    
-		    deadzone = movement.sqrMagnitude > 2000 ? 2000 : movement.sqrMagnitude;
+		    deadzone = movement.sqrMagnitude > 1500 ? 1500 : movement.sqrMagnitude;
 
 		    GetComponent.<Rigidbody2D>().velocity = movement;
 
@@ -64,9 +64,9 @@ public class PlayerScript extends MonoBehaviour {
 		
 		/** Move camera with player **/
 		
+		var originalCameraPosition = Camera.main.transform.position;
+
 		Camera.main.transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
-		
-		//parallaxSpace.transform.position = Vector3((Camera.main.transform.position.x / 10), (Camera.main.transform.position.y / 10), (Camera.main.transform.position.z - 30));
 		
 		/** end Move camera with player **/
 

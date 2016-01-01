@@ -11,7 +11,7 @@ public var planetsToGenerate:int = 20;
 public var enemiesToGenerate:int = 10;
 
 function Awake() {
-		
+
 	// randomly spawn planets
 	
 	var planetsHolder = new GameObject("Planets");
@@ -57,5 +57,5 @@ function Start () {
 function Update () {
 
 	Camera.main.orthographicSize = Screen.height / 8;	
-	
+
 }
