@@ -53,7 +53,7 @@ public class PlayerScript extends MonoBehaviour {
 
 		        var angle:float = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-		        transform.rotation = /*Quaternion.RotateTowards(transform.rotation, */Quaternion.AngleAxis(angle, Vector3.forward)/*, Time.deltaTime * 150)*/;
+		        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 		    }
 
@@ -68,6 +68,13 @@ public class PlayerScript extends MonoBehaviour {
 
 		Camera.main.transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
 		
+		Camera.main.transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
+
+		var parallaxCam = GameObject.FindGameObjectsWithTag("ParallaxCam");
+
+		//for (var cam: GameObject in parallaxCam) {
+            parallaxCam[0].transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
+		//}
 		/** end Move camera with player **/
 
 
