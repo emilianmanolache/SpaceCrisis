@@ -4,11 +4,19 @@ public var planetPrefab:GameObject;
 
 public var enemyPrefab:GameObject;
 
+public var blackHolePrefab:GameObject;
+
 public var player:GameObject;
 
 public var planetsToGenerate:int = 20;
 
 public var enemiesToGenerate:int = 10;
+
+public var blackHolesToGenerate:int = 5;
+
+public var blackHolesScaleRange:int[] = [20, 80];
+
+public var worldRadius = 500;
 
 function Awake() {
 
@@ -20,7 +28,7 @@ function Awake() {
 	
 	for (var i = 0; i < planetsToGenerate; i++) {
 
-		var newPlanet = Instantiate(planetPrefab, Vector3(Random.Range(-500,500), Random.Range(-500,500),
+	    var newPlanet = Instantiate(planetPrefab, Vector3(Random.Range(-worldRadius,worldRadius), Random.Range(-worldRadius,worldRadius),
 		
 					0), player.transform.rotation);
 		
@@ -28,6 +36,28 @@ function Awake() {
 		
 		newPlanet.transform.position = Vector3(newPlanet.transform.position.x, newPlanet.transform.position.y, 10);
 		
+	}
+
+    // randomly spawn black holes
+	
+	var blackHolesHolder = new GameObject("Black Holes");
+	
+	blackHolesHolder.transform.position = Vector3(blackHolesHolder.transform.position.x, blackHolesHolder.transform.position.y, -10);
+	
+	for (var f = 0; f < blackHolesToGenerate; f++) {
+
+	    var newBlackHole = Instantiate(blackHolePrefab, Vector3(Random.Range(-worldRadius,worldRadius), Random.Range(-worldRadius,worldRadius),
+		
+					0), player.transform.rotation);
+		
+	    newBlackHole.transform.parent = blackHolesHolder.transform;
+		
+	    newBlackHole.transform.position = Vector3(newBlackHole.transform.position.x, newBlackHole.transform.position.y, blackHolePrefab.transform.position.z - 10);
+		
+	    var blackHoleScale = Random.Range(blackHolesScaleRange[0], blackHolesScaleRange[1]);
+
+	    newBlackHole.transform.localScale = new Vector3(blackHoleScale, blackHoleScale, blackHoleScale);
+
 	}
 	
 	// randomly spawn enemies
@@ -38,14 +68,14 @@ function Awake() {
 	
 	for (var j = 0; j < enemiesToGenerate; j++) {
 
-		var newEnemy = Instantiate(enemyPrefab, Vector3(Random.Range(-500,500), Random.Range(-500,500),
+	    var newEnemy = Instantiate(enemyPrefab, Vector3(Random.Range(-worldRadius,worldRadius), Random.Range(-worldRadius,worldRadius),
 		
 					0), Quaternion.Euler(0.0, 0.0, Random.Range(0.0, 360.0)));
 		
 		newEnemy.transform.parent = enemiesHolder.transform;
 		
 		newEnemy.transform.position = Vector3(newEnemy.transform.position.x, newEnemy.transform.position.y, 10);
-		
+
 	}
 	
 }

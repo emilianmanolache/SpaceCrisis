@@ -72,9 +72,8 @@ public class PlayerScript extends MonoBehaviour {
 
 		var parallaxCam = GameObject.FindGameObjectsWithTag("ParallaxCam");
 
-		//for (var cam: GameObject in parallaxCam) {
-            parallaxCam[0].transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
-		//}
+		parallaxCam[0].transform.position = Vector3(transform.position.x, transform.position.y, (transform.position.z - 10));
+
 		/** end Move camera with player **/
 
 
