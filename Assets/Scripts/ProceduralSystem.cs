@@ -66,7 +66,9 @@ public class ProceduralSystem : MonoBehaviour
         // place planet
         var solarSystem = GameObject.FindGameObjectsWithTag("SolarSystem")[0];
         var placeholder = AddBasicGameObject("Planet", transform, 15.0f, 30.0f, -3.0f, 3.0f, 0.5f, 1.0f);
-        var newPlanet = (GameObject)Instantiate(planetPrefabs[Random.Range(0, (planetPrefabs.Count - 1))], new Vector3(0.0f, 0.0f, 0.0f), placeholder.transform.rotation);
+        var randomPlanetPrefab = Random.Range(0, planetPrefabs.Count);
+        Debug.Log(randomPlanetPrefab);
+        var newPlanet = (GameObject)Instantiate(planetPrefabs[randomPlanetPrefab], new Vector3(0.0f, 0.0f, 0.0f), placeholder.transform.rotation);
 
         // position within star system
         newPlanet.transform.parent = solarSystem.transform;
