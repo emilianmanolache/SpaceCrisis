@@ -181,10 +181,6 @@ public class PlanetScript extends MonoBehaviour {
     	    this.previousType = this.planetType;
     	
 	    }
-
-	    approachingText.transform.rotation = Quaternion.LookRotation(Vector3.up , Vector3.forward);
-
-	    orbitingText.transform.rotation = Quaternion.LookRotation(Vector3.up , Vector3.forward);
 	
     }
 

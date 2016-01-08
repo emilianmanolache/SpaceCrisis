@@ -121,6 +121,10 @@ public class ProceduralSystem : MonoBehaviour
             }
         }
 
+        // add planet script
+
+        newPlanet.AddComponent<PlanetScript>();
+
         Destroy(placeholder);
 
         // Add moons?
