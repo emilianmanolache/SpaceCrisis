@@ -247,7 +247,11 @@ public abstract class SgtStarfield : MonoBehaviour
 
 				if (FollowObservers == true)
 				{
-					group.TempPosition = group.transform.position;
+					if (group.TempSet == false)
+					{
+						group.TempSet      = true;
+						group.TempPosition = group.transform.position;
+					}
 
 					group.transform.position = camera.transform.position;
 				}
@@ -268,8 +272,10 @@ public abstract class SgtStarfield : MonoBehaviour
 					group.Material.SetFloat("_CameraRollAngle", 0.0f);
 				}
 
-				if (FollowObservers == true)
+				if (FollowObservers == true && group.TempSet == true)
 				{
+					group.TempSet = false;
+
 					group.transform.position = group.TempPosition;
 				}
 			}

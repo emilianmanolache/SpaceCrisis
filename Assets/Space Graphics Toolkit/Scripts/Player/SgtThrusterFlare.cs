@@ -22,8 +22,13 @@ public class SgtThrusterFlare : MonoBehaviour
 
 	private static Material flareMaterial;
 
+	[System.NonSerialized]
+	private bool tempSet;
+
+	[System.NonSerialized]
 	private Quaternion tempRotation;
 
+	[System.NonSerialized]
 	private Vector3 tempScale;
 
 	// This returns the default shared flare material
@@ -179,8 +184,12 @@ public class SgtThrusterFlare : MonoBehaviour
 			visibility.Scale = SgtHelper.Dampen(visibility.Scale, visibility.Visible == true ? 1.0f : 0.0f, Dampening, Time.unscaledDeltaTime, 0.1f);
 
 			// Point flare at camera
-			tempRotation = transform.rotation;
-			tempScale    = transform.localScale;
+			if (tempSet == false)
+			{
+				tempSet      = true;
+				tempRotation = transform.rotation;
+				tempScale    = transform.localScale;
+			}
 
 			transform.rotation   = rotation;
 			transform.localScale = finalScale * visibility.Scale;
@@ -189,8 +198,10 @@ public class SgtThrusterFlare : MonoBehaviour
 
 	private void CameraPostRender(Camera camera)
 	{
-		if (Thruster != null)
+		if (Thruster != null && tempSet == true)
 		{
+			tempSet = false;
+
 			transform.rotation   = tempRotation;
 			transform.localScale = tempScale;
 		}

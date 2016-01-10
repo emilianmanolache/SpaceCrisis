@@ -14,6 +14,10 @@ public class SgtThrusterFlame : MonoBehaviour
 
 	private static Material flameMaterial;
 
+	[System.NonSerialized]
+	private bool tempSet;
+
+	[System.NonSerialized]
 	private Quaternion tempRotation;
 
 	// This returns the default shared flame material
@@ -123,7 +127,11 @@ public class SgtThrusterFlame : MonoBehaviour
 			var rotation          = Quaternion.LookRotation(cross, direction) * Quaternion.Euler(0.0f, 90.0f, 90.0f);
 
 			// Rotate flame to camera
-			tempRotation = transform.rotation;
+			if (tempSet == false)
+			{
+				tempSet      = true;
+				tempRotation = transform.rotation;
+			}
 
 			transform.rotation = rotation;
 		}
@@ -131,8 +139,10 @@ public class SgtThrusterFlame : MonoBehaviour
 
 	private void CameraPostRender(Camera camera)
 	{
-		if (Thruster != null)
+		if (Thruster != null && tempSet == false)
 		{
+			tempSet = true;
+
 			transform.rotation = tempRotation;
 		}
 	}

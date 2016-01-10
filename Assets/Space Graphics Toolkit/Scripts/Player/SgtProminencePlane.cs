@@ -11,6 +11,9 @@ public class SgtProminencePlane : MonoBehaviour
 	public MeshRenderer MeshRenderer;
 
 	[System.NonSerialized]
+	public bool TempSet;
+
+	[System.NonSerialized]
 	public Vector3 TempPosition;
 
 	public void ManualUpdate(Mesh mesh, Material material, Quaternion rotation)

@@ -16,6 +16,9 @@ public class SgtStarfieldGroup : MonoBehaviour
 	public string[] LastKeywords;
 
 	[System.NonSerialized]
+	public bool TempSet;
+
+	[System.NonSerialized]
 	public Vector3 TempPosition;
 
 	[System.NonSerialized]

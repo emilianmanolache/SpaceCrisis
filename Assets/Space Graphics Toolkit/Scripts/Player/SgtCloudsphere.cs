@@ -292,7 +292,11 @@ public class SgtCloudsphere : MonoBehaviour
 					var oldPosition    = modelTransform.position;
 					var observerDir    = (oldPosition - camera.transform.position).normalized;
 
-					model.TempPosition = oldPosition;
+					if (model.TempSet == false)
+					{
+						model.TempSet      = true;
+						model.TempPosition = oldPosition;
+					}
 
 					modelTransform.position += observerDir * ObserverOffset;
 				}
@@ -308,8 +312,10 @@ public class SgtCloudsphere : MonoBehaviour
 			{
 				var model = models[i];
 
-				if (model != null)
+				if (model != null && model.TempSet == true)
 				{
+					model.TempSet = false;
+
 					model.transform.position = model.TempPosition;
 				}
 			}

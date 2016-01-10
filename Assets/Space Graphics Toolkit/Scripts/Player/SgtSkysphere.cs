@@ -27,7 +27,11 @@ public class SgtSkysphere : MonoBehaviour
 	[SerializeField]
 	private List<SgtSkysphereModel> models = new List<SgtSkysphereModel>();
 
-	private static Vector3 tempPosition;
+	[System.NonSerialized]
+	private bool tempPositionStored;
+
+	[System.NonSerialized]
+	private Vector3 tempPosition;
 
 	public void UpdateState()
 	{
@@ -149,9 +153,21 @@ public class SgtSkysphere : MonoBehaviour
 	{
 		if (FollowObservers == true)
 		{
-			tempPosition = transform.position;
+			for (var i = models.Count - 1; i >= 0; i--)
+			{
+				var model = models[i];
 
-			transform.position = camera.transform.position;
+				if (model != null)
+				{
+					if (model.TempSet == false)
+					{
+						model.TempSet      = true;
+						model.TempPosition = model.transform.position;
+					}
+
+					model.transform.position = camera.transform.position;
+				}
+			}
 		}
 	}
 
@@ -159,7 +175,17 @@ public class SgtSkysphere : MonoBehaviour
 	{
 		if (FollowObservers == true)
 		{
-			transform.position = tempPosition;
+			for (var i = models.Count - 1; i >= 0; i--)
+			{
+				var model = models[i];
+
+				if (model != null && model.TempSet == true)
+				{
+					model.TempSet = false;
+
+					model.transform.position = model.TempPosition;
+				}
+			}
 		}
 	}
 }

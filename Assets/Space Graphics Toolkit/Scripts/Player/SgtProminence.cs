@@ -267,7 +267,11 @@ public class SgtProminence : MonoBehaviour
 					var oldPosition    = planeTransform.position;
 					var observerDir    = (oldPosition - camera.transform.position).normalized;
 
-					plane.TempPosition = oldPosition;
+					if (plane.TempSet == false)
+					{
+						plane.TempSet      = true;
+						plane.TempPosition = oldPosition;
+					}
 
 					planeTransform.position += observerDir * ObserverOffset;
 				}
@@ -283,8 +287,10 @@ public class SgtProminence : MonoBehaviour
 			{
 				var plane = planes[i];
 
-				if (plane != null)
+				if (plane != null && plane.TempSet == true)
 				{
+					plane.TempSet = false;
+
 					plane.transform.position = plane.TempPosition;
 				}
 			}

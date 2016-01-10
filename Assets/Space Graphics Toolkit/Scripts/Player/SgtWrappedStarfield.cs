@@ -39,7 +39,6 @@ public class SgtWrappedStarfield : SgtStarfield
 	// Shift all bounds on top of the observer, so it never exits the view frustum
 	protected override void CameraPreCull(Camera camera)
 	{
-        
 		// Make sure this is disabled, else the wrapping will never be seen
 		FollowObservers = false;
 
@@ -63,10 +62,10 @@ public class SgtWrappedStarfield : SgtStarfield
 
 						if (modelMesh != null)
 						{
-                            
-                            var center = model.transform.InverseTransformPoint(camera.transform.position);
-                            modelMesh.bounds = new Bounds(center, Size);
-                        }
+							var center = model.transform.InverseTransformPoint(camera.transform.position);
+
+							modelMesh.bounds = new Bounds(center, Size);
+						}
 					}
 				}
 			}
