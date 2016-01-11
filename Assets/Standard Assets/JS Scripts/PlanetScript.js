@@ -38,24 +38,24 @@ public class PlanetScript extends MonoBehaviour {
 
     function Awake () {
 
-	    // set planet name
+        // set planet name
 	
-	    var planetNamesCount 				= planetNames.length;
+        var planetNamesCount 				= planetNames.length;
     
         var randomName	 					= planetNames[Random.Range(0, (planetNamesCount - 1))];
     
         this.planetName						= randomName;
     
-	    // load and set sprite
+        // load and set sprite
     
         /*var planetSprites					= Resources.LoadAll("Sprites/planets");
-    
+        
         var planetSpritesCount 				= planetSprites.length;
-    
+        
         var randomPlanet 					= Random.Range(1, planetSpritesCount);
-
-	    var spriteRenderer:SpriteRenderer	= gameObject.AddComponent.<SpriteRenderer>() as SpriteRenderer;
     
+        var spriteRenderer:SpriteRenderer	= gameObject.AddComponent.<SpriteRenderer>() as SpriteRenderer;
+        
         spriteRenderer.sprite 				= planetSprites[randomPlanet] as Sprite;*/
     
         // generate minimap icon
@@ -64,7 +64,7 @@ public class PlanetScript extends MonoBehaviour {
     
         var minimapIconSpriteRenderer:SpriteRenderer = minimapIcon.AddComponent.<SpriteRenderer>() as SpriteRenderer;
 
-	    var minimapIconSprite:Sprite		= planetType == 0 ? neutralPlanetIcon : (planetType == 1 ? playerPlanetIcon : enemyPlanetIcon);
+        var minimapIconSprite:Sprite		= planetType == 0 ? neutralPlanetIcon : (planetType == 1 ? playerPlanetIcon : enemyPlanetIcon);
 	
         minimapIconSpriteRenderer.sprite	= minimapIconSprite;
 
@@ -80,21 +80,23 @@ public class PlanetScript extends MonoBehaviour {
     
         this.previousType					= this.planetType;
     
-	    // add a box collider
+        // add a box collider
 	
-	    gameObject.AddComponent.<BoxCollider2D>();
+        gameObject.AddComponent.<BoxCollider>();
 	
+        var renderer = getRenderer();
+
 	    // generate planet text meshes
 
 	    var approachingText 				= new GameObject("Approaching Text");
 	
-	    approachingText.transform.position	= Vector3(this.transform.position.x, this.GetComponent.<Renderer>().bounds.min.y - 5, this.transform.position.z);
+	    approachingText.transform.position	= Vector3(this.transform.position.x, renderer.bounds.min.y - 5, this.transform.position.z);
 	
 	    approachingText.transform.parent 	= this.transform;
 	
 	    var orbitingText 					= new GameObject("Orbiting Text");
 	
-	    orbitingText.transform.position		= Vector3(this.transform.position.x, this.GetComponent.<Renderer>().bounds.min.y - 5, this.transform.position.z);
+	    orbitingText.transform.position		= Vector3(this.transform.position.x, renderer.bounds.min.y - 5, this.transform.position.z);
 	
 	    orbitingText.transform.parent 		= this.transform;
 	
@@ -182,11 +184,45 @@ public class PlanetScript extends MonoBehaviour {
     	
 	    }
 	
+        /*var renderer = getRenderer();
+
+	    for (var child:Transform in this.transform) {
+
+            if (child.name == "Approaching Text" || child.name == "Orbiting Text") {
+
+                child.transform.position	= Vector3(this.transform.position.x, renderer.bounds.min.y - 5, this.transform.position.z);
+
+	        }
+
+        }*/
+
     }
 
     function setPlanetName(newName:String) {
 
         GetComponent(TextMesh).text = newName;
+
+    }
+
+    function getRenderer() {
+
+        var renderer = this.GetComponent.<Renderer>() != null ? this.GetComponent.<Renderer>() : null;
+
+        if (renderer == null) {
+
+            for (var child:Transform in this.transform) {
+
+                if ((child.gameObject.GetComponent.<Renderer>() as Renderer) != null) {
+
+                    renderer = child.gameObject.GetComponent.<Renderer>();
+
+                }
+
+            }
+
+        }
+
+        return renderer;
 
     }
 

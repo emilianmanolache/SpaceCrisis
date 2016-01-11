@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3306658}
   - 23: {fileID: 2321878}
   - 114: {fileID: 11476222}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Mercury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11489638}
   - 33: {fileID: 3303964}
   - 23: {fileID: 2375766}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

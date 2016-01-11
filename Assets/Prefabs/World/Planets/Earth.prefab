@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2377182}
   - 114: {fileID: 11441092}
   - 114: {fileID: 11487696}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11463966}
   - 33: {fileID: 3342410}
   - 23: {fileID: 2377642}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - 114: {fileID: 11452130}
   - 33: {fileID: 3352544}
   - 23: {fileID: 2337898}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11402350}
   - 33: {fileID: 3311910}
   - 23: {fileID: 2339380}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11495968}
   - 33: {fileID: 3355428}
   - 23: {fileID: 2318442}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 11431394}
   - 33: {fileID: 3332854}
   - 23: {fileID: 2388526}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 460874}
   - 114: {fileID: 11499608}
   - 114: {fileID: 11496004}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Saturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408802}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Saturn
   m_TagString: PlanetWithRings
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 114: {fileID: 11452156}
   - 33: {fileID: 3376752}
   - 23: {fileID: 2370070}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - 114: {fileID: 11464974}
   - 33: {fileID: 3343532}
   - 23: {fileID: 2340302}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - 114: {fileID: 11469372}
   - 33: {fileID: 3316876}
   - 23: {fileID: 2369680}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - 4: {fileID: 436132}
   - 114: {fileID: 11489526}
   - 114: {fileID: 11488188}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - 114: {fileID: 11405410}
   - 33: {fileID: 3310208}
   - 23: {fileID: 2331886}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - 114: {fileID: 11491974}
   - 33: {fileID: 3345306}
   - 23: {fileID: 2372302}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - 114: {fileID: 11409178}
   - 33: {fileID: 3311242}
   - 23: {fileID: 2371238}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1153,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString

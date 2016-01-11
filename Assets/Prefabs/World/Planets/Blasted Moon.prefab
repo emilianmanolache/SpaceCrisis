@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2398482}
   - 114: {fileID: 11428102}
   - 114: {fileID: 11409026}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Blasted Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11419454}
   - 33: {fileID: 3374978}
   - 23: {fileID: 2356170}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

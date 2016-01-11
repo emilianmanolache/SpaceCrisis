@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3340082}
   - 23: {fileID: 2353914}
   - 114: {fileID: 11433064}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Mars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11473256}
   - 33: {fileID: 3316348}
   - 23: {fileID: 2319120}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

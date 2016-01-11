@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2318250}
   - 114: {fileID: 11401122}
   - 114: {fileID: 11476556}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Green Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11439696}
   - 33: {fileID: 3308610}
   - 23: {fileID: 2373190}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

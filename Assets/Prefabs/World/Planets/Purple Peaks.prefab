@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11406654}
   - 33: {fileID: 3350084}
   - 23: {fileID: 2374548}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2337188}
   - 114: {fileID: 11455440}
   - 114: {fileID: 11407358}
-  m_Layer: 19
+  m_Layer: 10
   m_Name: Purple Peaks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

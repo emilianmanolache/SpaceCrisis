@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11426768}
   - 33: {fileID: 3323616}
   - 23: {fileID: 2382200}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461152}
   - 114: {fileID: 11451306}
-  m_Layer: 20
+  m_Layer: 10
   m_Name: Neptune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Smooth
