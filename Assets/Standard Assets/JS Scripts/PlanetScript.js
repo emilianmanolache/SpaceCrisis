@@ -30,6 +30,8 @@ public class PlanetScript extends MonoBehaviour {
 
     private var minimapIconSpriteRenderer:SpriteRenderer;
 
+    public var internalPlanetType = "regular"; 
+
     public enum planetTypes {
 
 	    Neutral, Player, Enemy
@@ -86,24 +88,34 @@ public class PlanetScript extends MonoBehaviour {
 	
         var renderer = getRenderer();
 
+        // detect planet type
+
+        if (this.gameObject.tag == 'GasPlanet') {
+
+            internalPlanetType = 'gas';
+
+        }
+
+        var textPositionCorrection = internalPlanetType == "regular" ? 5 : -14;
+        
 	    // generate planet text meshes
 
 	    var approachingText 				= new GameObject("Approaching Text");
 	
-	    approachingText.transform.position	= Vector3(this.transform.position.x, renderer.bounds.min.y - 5, this.transform.position.z);
+	    approachingText.transform.position	= Vector3(this.transform.position.x, renderer.bounds.min.y - textPositionCorrection, this.transform.position.z);
 	
 	    approachingText.transform.parent 	= this.transform;
 	
 	    var orbitingText 					= new GameObject("Orbiting Text");
 	
-	    orbitingText.transform.position		= Vector3(this.transform.position.x, renderer.bounds.min.y - 5, this.transform.position.z);
+	    orbitingText.transform.position		= Vector3(this.transform.position.x, renderer.bounds.min.y - textPositionCorrection, this.transform.position.z);
 	
 	    orbitingText.transform.parent 		= this.transform;
 	
 	    // load custom font
 	
 	    var importedFont:Font 				= Resources.Load("Fonts/" + fontFile) as Font;
-    
+
 	    // add and configure text meshes parameters
 	
 	    approachingText.AddComponent(TextMesh);

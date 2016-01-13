@@ -76,12 +76,13 @@ public class ProceduralSystem : MonoBehaviour
 
         // fix orbit and rotation
         var simpleOrbit = newPlanet.AddComponent<SimpleOrbit>();
-        var rotate = newPlanet.AddComponent<SgtRotate>();
         simpleOrbit.Angle = placeholder.GetComponent<SimpleOrbit>().Angle;
         simpleOrbit.Radius = placeholder.GetComponent<SimpleOrbit>().Radius;
         simpleOrbit.Center = new Vector3(placeholder.GetComponent<SimpleOrbit>().Center.x, placeholder.GetComponent<SimpleOrbit>().Center.y - 3, placeholder.GetComponent<SimpleOrbit>().Center.z);
         simpleOrbit.DegreesPerSecond = placeholder.GetComponent<SimpleOrbit>().DegreesPerSecond;
-        rotate.DegreesPerSecond = placeholder.GetComponent<SgtRotate>().DegreesPerSecond;
+
+        /*var rotate = newPlanet.AddComponent<SgtRotate>();
+        rotate.DegreesPerSecond = placeholder.GetComponent<SgtRotate>().DegreesPerSecond;*/
 
         // add atmosphere lights
         if ((newPlanet.GetComponent<SgtAtmosphere>() as SgtAtmosphere) != null)

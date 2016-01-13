@@ -100,26 +100,24 @@ public class PlayerScript extends MonoBehaviour {
 		
 		/** Detect planet proximity **/
 		
-		var layerMask = 10;
+		var layerMask = 1 << 10;
 
-		var spherePosition = new Vector3(transform.position.x, transform.position.y, 988);
+		var spherePosition = new Vector3(transform.position.x, transform.position.y, 985);
 
-		spherePosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-		var approachingPlanetCol = Physics.OverlapSphere(spherePosition, 200, layerMask);
+		var approachingPlanetCol:Collider[] = Physics.OverlapSphere(spherePosition, 30, layerMask);
     		
-		var orbitingPlanetCol = Physics.OverlapSphere(spherePosition, 5, layerMask);
+		var orbitingPlanetCol:Collider[] = Physics.OverlapSphere(spherePosition, 20, layerMask);
     	
 		var i:int = 0;
-
-    	if (orbitingPlanetCol) {
+		
+    	if (orbitingPlanetCol.Length) {
     	    
 			hideAllPlanetText();
 		
 			i = 0;
 
 			while (i < orbitingPlanetCol.Length) {
-			    Debug.Log('Orbiting ' + orbitingPlanetCol[i].gameObject.name);
+
 			    var orbitingPlanet = orbitingPlanetCol[i].gameObject;
     	
 			    planetScript = orbitingPlanet.GetComponent(PlanetScript); 
@@ -132,14 +130,14 @@ public class PlayerScript extends MonoBehaviour {
     		
     	}
     	
-    	else if (approachingPlanetCol) {
-    	    Debug.Log(approachingPlanetCol.Length);	
+    	else if (approachingPlanetCol.Length) {
+
     		hideAllPlanetText();
     		
     		i = 0;
 
     		while (i < approachingPlanetCol.Length) {
-    		    Debug.Log('Approaching ' + approachingPlanetCol[i].gameObject.name);
+
     		    var approachingPlanet = approachingPlanetCol[i].gameObject;
     	
     		    planetScript = approachingPlanet.GetComponent(PlanetScript); 

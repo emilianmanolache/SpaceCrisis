@@ -8,7 +8,7 @@ TagManager:
   - Enemy
   - ParallaxCam
   - SolarSystem
-  - PlanetWithRings
+  - GasPlanet
   layers:
   - Default
   - TransparentFX
