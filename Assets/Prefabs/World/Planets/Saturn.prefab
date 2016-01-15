@@ -81,7 +81,7 @@ GameObject:
   - 4: {fileID: 408802}
   m_Layer: 10
   m_Name: Saturn
-  m_TagString: PlanetWithRings
+  m_TagString: GasPlanet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1157,7 +1157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: PlanetWithRings
+      value: GasPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
