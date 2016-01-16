@@ -96,8 +96,8 @@ public class PlanetScript extends MonoBehaviour {
 
         }
 
-        var textPositionCorrection = internalPlanetType == "regular" ? 5 : -14;
-        
+        var textPositionCorrection = internalPlanetType == "regular" ? 5 : -3;
+
 	    // generate planet text meshes
 
 	    var approachingText 				= new GameObject("Approaching Text");
