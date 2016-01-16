@@ -5,13 +5,13 @@ using System.Collections.Generic;
 [AddComponentMenu("Procedural System")]
 public class ProceduralSystem : MonoBehaviour
 {
-	public Mesh SphereMesh;
+    public Mesh SphereMesh;
 
-	public List<Material> PlanetMaterials = new List<Material>();
+    public List<Material> PlanetMaterials = new List<Material>();
 
-	public List<Material> MoonMaterials = new List<Material>();
+    public List<Material> MoonMaterials = new List<Material>();
 
-	public List<Object> GeneratedObjects = new List<Object>();
+    public List<Object> GeneratedObjects = new List<Object>();
 
 
     public List<GameObject> planetPrefabs = new List<GameObject>();
@@ -22,9 +22,49 @@ public class ProceduralSystem : MonoBehaviour
 
     public GameObject starLightGasPlanetPrefab;
 
+    public GameObject starLightPrefab;
+
     public GameObject newStarNormalLight;
 
     public GameObject newStarGasLight;
+
+    public GameObject newStarLight;
+
+    public string planetName = "";
+
+    public GameObject approachingText;
+
+    public GameObject orbitingText;
+
+    public string[] planetNames = new string[] {"Mars", "Neptune", "Jupiter", "Terra", "Uranus", "Moon", "Saturn", "Mercury", "Venus"};
+
+    public string fontFile = "zekton";
+
+    public int fontSize = 38;
+
+    public Color approachingTextColor = Color.gray;
+
+    public Color orbitingTextColor = Color.white;
+
+    public Sprite neutralPlanetIcon;
+
+    public Sprite playerPlanetIcon;
+
+    public Sprite enemyPlanetIcon;
+
+    public planetTypes planetType;
+
+    private planetTypes previousType;
+
+    private SpriteRenderer minimapIconSpriteRenderer;
+
+    public string internalPlanetType = "regular";
+
+    public enum planetTypes {
+
+        Neutral, Player, Enemy
+
+    }
 
     public void Clear()
 	{
@@ -54,6 +94,10 @@ public class ProceduralSystem : MonoBehaviour
         newStarGasLight = (GameObject)Instantiate(starLightGasPlanetPrefab, new Vector3(0.0f, 0.0f, 0.0f), placeholder.transform.rotation);
         newStarGasLight.transform.parent = solarSystem.transform;
         newStarGasLight.transform.localPosition = new Vector3(0.0f, -20.0f, 0.0f);
+
+        newStarLight = (GameObject)Instantiate(starLightPrefab, new Vector3(0.0f, 0.0f, 0.0f), placeholder.transform.rotation);
+        newStarLight.transform.parent = solarSystem.transform;
+        newStarLight.transform.localPosition = new Vector3(0.0f, -195.0f, 0.0f);
 
         Destroy(placeholder);
 
@@ -122,8 +166,10 @@ public class ProceduralSystem : MonoBehaviour
         }
 
         // add planet script
-
-        newPlanet.AddComponent<PlanetScript>();
+        
+        PlanetScript planetScript = newPlanet.AddComponent<PlanetScript>();
+        setPlanetScriptVars(planetScript);
+        planetScript.Render();
 
         Destroy(placeholder);
 
@@ -172,6 +218,13 @@ public class ProceduralSystem : MonoBehaviour
 
 		return gameObject;
 	}
+
+    private void setPlanetScriptVars(PlanetScript planetScript)
+    {
+        planetScript.neutralPlanetIcon = neutralPlanetIcon;
+        planetScript.playerPlanetIcon = playerPlanetIcon;
+        planetScript.enemyPlanetIcon = enemyPlanetIcon;
+    }
 
 	protected virtual void Awake()
 	{

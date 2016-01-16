@@ -38,7 +38,7 @@ public class PlanetScript extends MonoBehaviour {
 	
     }
 
-    function Awake () {
+    function Render () {
 
         // set planet name
 	
@@ -72,7 +72,7 @@ public class PlanetScript extends MonoBehaviour {
 
         minimapIcon.layer					= 15;
     
-        minimapIcon.transform.position		= this.transform.position;
+        minimapIcon.transform.position		= new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 70);
     
         minimapIcon.transform.localScale	+= Vector3(10, 10, 0);
     
